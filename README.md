@@ -1,2 +1,2 @@
 # markdowns
-All markdowns of Obsidian
+All markdowns managed in Obsidian
