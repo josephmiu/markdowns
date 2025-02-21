@@ -6,7 +6,7 @@
 
  **Reboot by Selecting Nixos 24.05**
 ### 4. Disk Partition
-1. <pre><code>sudo gparted</code></pre>
+1. ```sudo gparted```
 2. Check the selected Drive
 3. Create table by Type: ```gpt```
 4. Partition by the following sections:
@@ -26,10 +26,14 @@ Command for check the name:
 <pre><code>lsblk, lsblk-f</code></pre>
 
 To check the status:
-<pre><code>cat/proc/mdstat</code></pre>
+```
+cat/proc/mdstat
+```
 
 ### 6. Create File system
-<pre><code>sudo mkfs.ext4 -L data /dev/md0</code></pre>
+```
+sudo mkfs.ext4 -L data /dev/md0
+```
 
 ### 7. Mount Partitions
 <pre><code>cd /mnt
@@ -100,7 +104,7 @@ systemctl status
 systemctl list-units
 ```
 ---
-### Check sdc
+#### Check sdc
 <pre><code>sudo journalctl -u mnt-black\\x2d...sdc.mount
 cat /etc/fstab</code></pre>
 
