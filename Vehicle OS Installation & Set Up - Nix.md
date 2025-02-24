@@ -86,8 +86,7 @@ nixos-install --root /mnt
 ```
 Set the ```root``` password, and reboot.
 
-### 12. Push the updated configuration to git repo
-
+### 12. Push the updated configurations to git repository
 
 ```
 cd /mnt/deployment
@@ -103,15 +102,15 @@ sudo rm -rf deployment/</code></pre>
 ### 13. Setup User Home & Password
 1. (CTRL-ALT-F1) go to the terminal in the login page.
 	- Log in by username: ```root```
-	- ```passwd d300``` - Set up the user password for **d300**. 
+	- ```passwd d300``` - Set up the user password for <u>d300</u>. 
 2. create home: 
 	<pre><code>mkdir /home/d300
 	cd home
 	chown d300:d300 d300
 	ls l
 	</code></pre>
-3. login as d300
-### 14. systemctl:
+3. login as <u>d300</u>
+### 14. System Check:
 
 Use ```systemctl``` to check if anythings' wrong.
 ```
@@ -119,7 +118,7 @@ systemctl status
 systemctl list-units
 ```
 ---
-#### Check sdc
+#### Check SDC
 <pre><code>sudo journalctl -u mnt-black\\x2d...sdc.mount
 cat /etc/fstab</code></pre>
 
