@@ -2,12 +2,12 @@
 	- System Config
 		- Graphic Config
 			- Primary Display
-				- IGFX
+				- <u>IGFX</u>
 	- SATA Config:
-		- Device Type: SSD
+		- Device Type: <u>SSD</u>
+		- SATA mode: <u>AHCI</u>
 2. Boot:
-	- Boot Type: UEFI
-	- Quick boot: Disable
+	- Boot Type: <u>UEFI</u>
 	- Quiet boot: Disable
 
 ##### Former Notes: 

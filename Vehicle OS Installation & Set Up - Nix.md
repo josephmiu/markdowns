@@ -13,7 +13,7 @@
    **Size | name&label | type** 
 	* size: 1000, nix-boot, fat32
 	* size: 100000, nix-root, ext4
-	* size: reserve 15000 for the rest part, linux-shared, ext4
+	* size: reserve 15000 for the rest part, <font color="#F7A004">linux-shared</font>, ext4
 	* size: 15000, swap, swap-linux
 	
 5. Confirm partition changes
@@ -59,7 +59,7 @@ If **vpn** needed:
 sudo cp -r deployment/ /mnt
 cd /mnt
 mkdir -p /mnt/etc/nixos
-ln -s ../../deployment/nixos/machines/(new_v_name)/(black-widow.nix or black-p) configuration.nix
+ln -s ../../deployment/nixos/machines/(new_v_name)/(b-w or b-p.nix) configuration.nix
 cd /mnt/deployment
 git status
 git push</code></pre>
