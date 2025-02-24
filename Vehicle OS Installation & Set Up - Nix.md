@@ -88,7 +88,7 @@ Set the ```root``` password, and reboot.
 ### 13. Setup User Home & Password
 1. (CTRL-ALT-F1) go to the terminal in the login page.
 	- Log in by username: ```root```
-	- ```passwd d300``` - Set up the user password to **d300**. 
+	- ```passwd d300``` - Set up the user password for **d300**. 
 2. create home: 
 	<pre><code>mkdir /home/d300
 	cd home
@@ -127,3 +127,17 @@ nix-shell --packages openfortivpn
 rm -rf /deployment
 cd vtoy-extra
 tar -xf deployment -C /home/nixos</code></pre>
+
+##### Black-Widow:
+*/home/sdc* is mounted from **black-panther**: */home/sdc*, which make sure we could only modify files on **black-panther**, check */etc/fstab* after installation to see more details.
+
+
+(Need updated) Links of _black-widow_:
+1. */home/sdc* -> */home/sdc* (Defined already)
+2. */root/nix-channels* -> */home/sdc/deployment/nixos/machines/\<v-name\>/nix-channels
+
+##### After connecting _black-widow_ and _black-panther_
+Other configurations required after connecting _black-widow_ and _black-panther_:
+
+- SSH login without password from *black-panther* to *black-widow*.
+- Check *chrony*.
