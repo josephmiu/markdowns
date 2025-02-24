@@ -5,7 +5,7 @@
 [[BIOS Settings]]
 
  **Reboot by Selecting Nixos 24.05**
-### 4. Disk Partition
+### 3. Disk Partition
 1. ```sudo gparted```
 2. Check the selected Drive
 3. Create table by Type: ```gpt```
@@ -19,29 +19,31 @@
 5. Confirm partition changes
 6. manage <font color="#F7A004">nix-boot</font> flag by selecting ```boot```&```esp```
 
-### 5. Create RAID1 on 2 SSDs:
+### 4. Create RAID1 on 2 SSDs:
+
+Create a Array:
 <pre><code>sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda /dev/sdb</code></pre>
 Notes:
-Command for check the name:
+Command for checking the name:
 <pre><code>lsblk, lsblk-f</code></pre>
 
 To check the status:
 ```
-cat/proc/mdstat
+cat /proc/mdstat
 ```
 
-### 6. Create File system
+### 5. Create File system
 ```
 sudo mkfs.ext4 -L data /dev/md0
 ```
 
-### 7. Mount Partitions
+### 6. Mount Partitions
 <pre><code>cd /mnt
 sudo mkdir /mnt/boot
 sudo mount /dev/disk/by-label/nix-root /mnt
 sudo mount /dev/disk/by-label/NIX-BOOT /mnt/boot</code></pre>
 
-### 8. Clone Deployment
+### 7. Clone Deployment
 <pre><code>cd ~
 tar -xf /run/media/nixos/vtoy-extra/deployment.tar
 mv deployment /mnt
@@ -50,25 +52,22 @@ cd /mnt/deployment
 git pull
 
 cd nixos/machine
-cp -r mastertrans-1 /(new_v_name)</code></pre>
+cp -r mastertrans-1 /mnt/deployment/nixos/machines/(new_v_name)</code></pre>
 If **vpn** needed:
 [[VPN - fortivpn]]
 
 ### 9. Create symbolic link
-<pre><code>cd
-sudo cp -r deployment/ /mnt
-cd /mnt
+<pre><code>cd /mnt
 mkdir -p /mnt/etc/nixos
 ln -s ../../deployment/nixos/machines/(new_v_name)/(b-w or b-p.nix) configuration.nix
-cd /mnt/deployment
-git status
-git push</code></pre>
+</code></pre>
 
-Notes:
-If no permission:
-<pre><code>sudo chown -R nixos:nixos deployment/
-sudo rm -rf deployment/</code></pre>
-### 10. Sockets
+Check if successfully link:
+```
+ls -l
+```
+
+### 10. Modify Configuration.nix & Sockets
 1. *(window + left + right)* to open another window
 <pre><code>ip a | grep ‘state UP’, watch -n 1 “ip a | grep ‘state UP’, ip a | grep ‘state UP’ -A 1
 ip a
@@ -77,6 +76,10 @@ watch ip a
 1. check & copy the corresponding socket to the ip: Ex: eth00 = ip
 2. If extra br needed, add in br section and command/delete the section eth00
 
+Modify:
+- **hostname**
+- **vconfigname**
+
 ### 11. Nix install:
 ```
 nixos-install --root /mnt
@@ -84,6 +87,18 @@ nixos-install --root /mnt
 Set the ```root``` password, and reboot.
 
 ### 12. Push the updated configuration to git repo
+
+
+```
+cd /mnt/deployment
+git status
+git push
+```
+
+Notes:
+If no permission:
+<pre><code>sudo chown -R nixos:nixos deployment/
+sudo rm -rf deployment/</code></pre>
 
 ### 13. Setup User Home & Password
 1. (CTRL-ALT-F1) go to the terminal in the login page.
