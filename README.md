@@ -1,2 +1,2 @@
 # markdowns
-All markdowns managed in Obsidian
+All markdowns managed in Obsidian by Joseph Miu
