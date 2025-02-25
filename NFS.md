@@ -49,13 +49,13 @@ Modify fstab:
 Add: 
 <font color="#aa57fc">ip</font>/<font color="#e8842b">hostname</font>:<font color="#d6cb6a">target_folder</font> <font color="#7ad546">local_mounting_point</font> nfs defaults 0 0
 
-	Notes:
-	The last two digits means:
-	1. First arg - dump settings
+Notes:
+The last two digits means:
+1. First arg - dump settings
 	- 0 (default): doesn't need dump back-up
 	- 1 : activate dump back-up
 	
-	1. Second arg - fsck settings
+2. Second arg - fsck settings
 	Enable or disable file system check when booting: 
 	- 0 (default): Disable fsck checking
 	- 1 (Highest priority): Check root (/) file system when booting( Only     available on local disk) 
