@@ -17,8 +17,8 @@ Explanation:
 - <font color="#aa57fc">ip</font>: Client IP/host that allow to access the shared folder
 - <span style="background-color:#4b4b4b">*rw*</span>: Read & write
 - <span style="background-color:#4b4b4b">*sync*</span>: Make sure to write the data at the same time
-- <span style="background-color:#4b4b4b">*no_root_squash*</span>: Allow remote root has the same authorities as the local root
-- <span style="background-color:#4b4b4b">*no_subtree_check*</span>: Disables a security verification that subdirectories a client attempts to mount for an exported filesystem are ones they’re permitted to do so. Sometime could improve the performance.
+- <span style="background-color:#4b4b4b">*no_root_squash*</span>: Allow remote root to has the same authorities as local root
+- <span style="background-color:#4b4b4b">*no_subtree_check*</span>: Disables security verification of sub-tree. Sometime could improve the performance.
 
 If you want to replace <font color="#aa57fc">ip</font> with <font color="#e8842b">hostname</font>, check [[Hostname Mapping]]
 #### 5. Restart the NFS Server
@@ -40,8 +40,8 @@ Check if NFS-sharing working successfully or not by the command:
 <font color="#7ad546">local_mounting_point</font>: local mounting point: /mnt/gen 
 #### 3. Check if mounting success
 <pre><code>mount</pre></code>
-Success if see ip/hostname:target_folder local_mounting_point...
-
+Success if see:
+ip/hostname:target_folder local_mounting_point...
 #### 4. Automatically mount when booting
 
 Modify fstab:
