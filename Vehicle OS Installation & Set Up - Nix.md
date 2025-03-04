@@ -118,6 +118,13 @@ systemctl status
 systemctl list-units
 ```
 ---
+
+## Checks:
+
+#### Check mounting point
+Check the Black-panther and Black-widow's link and mounting points.
+
+
 #### Check SDC
 <pre><code>sudo journalctl -u mnt-black\\x2d...sdc.mount
 cat /etc/fstab</code></pre>
